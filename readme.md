@@ -8,5 +8,5 @@ Script for ```Ubuntu Linux```
 ###Require
 * Espeak
 * pico2wave
-* mpg123
-* Network (for Alyona) 
+* RHvoice
+* aplay

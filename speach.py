@@ -18,7 +18,7 @@ os.chdir(crdir)
 
 sh = {"am":"espeak -v hy  -f '/tmp/ttsdata'",
       "en":'./say.sh "$(cat /tmp/ttsdata)"',
-      "ru":"./Alyona/Alyona.py",
+      "ru":"cat /tmp/ttsdata | RHVoice-client -v 1 -s anna+clb | aplay",
 }
 
 def callBack(*args):

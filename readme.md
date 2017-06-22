@@ -1,11 +1,11 @@
 # Copy and read
 Script for ```Ubuntu Linux```
 
-###Features
+### Features
 * Detect text language ```Armenian / English / Russian```
 * Read text
 
-###Require
+### Require
 * Espeak
 * pico2wave
 * RHvoice

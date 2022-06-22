@@ -3,13 +3,12 @@
 
 import os,re
 
-def getLang(str):
+def getLang(cptx):
     am = 0
     en = 0
     ru = 0
     count = 0
-    str = unicode(str,'utf-8')
-    for i in str:
+    for i in cptx:
         c = ord(i)
         if c<63:
             continue
@@ -41,7 +40,7 @@ def killspeach():
     os.system("pkill Alyona.py -f")
     os.system("pkill mpg123 -f")
 
-def russianparty(text):
+def russianfix(text):
     text = re.sub(r'\«', "\n ", text,flags=re.MULTILINE)
     text = re.sub(r'\»', "\n ", text,flags=re.MULTILINE)
     text = text.replace('"', "\n ")

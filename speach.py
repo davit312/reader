@@ -1,6 +1,4 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-
+#!/usr/bin/env python3
 
 import sys,os
 from gi.repository import Gtk, Gdk
@@ -17,7 +15,7 @@ os.chdir(crdir)
 
 
 sh = {"am":"espeak -v hy  -f '/tmp/ttsdata'",
-      "en":'./say.sh "$(cat /tmp/ttsdata)"',
+      "en":"espeak -v en  -f '/tmp/ttsdata'",
       "ru":"cat /tmp/ttsdata | RHVoice-client -v 1 -s anna+clb | aplay",
 }
 
@@ -28,7 +26,7 @@ def callBack(*args):
     text = clip.wait_for_text()
     lng = speachlib.getLang(text)
     #if lng == 'ru':
-    #    text = speachlib.russianparty(text)
+    #    text = speachlib.russianfix(text)
     f = open('/tmp/ttsdata',"w")
     f.write(text)
     f.close()

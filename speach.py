@@ -8,17 +8,23 @@ import time
 minc=0
 back=''
 last=0
+postfix = int(time.time())
 
 
 crdir = os.path.dirname(os.path.abspath(__file__))
 os.chdir(crdir)
 
+args = speachlib.parse_args()
+print(args.gtts)
 
 sh = {"am":"espeak -v hy  -f '/tmp/ttsdata'",
       "en":"espeak -v en  -f '/tmp/ttsdata'",
       "ru":"cat /tmp/ttsdata | RHVoice-client -v 1 -s anna+clb | aplay",
 }
-
+if args.gtts:
+     sh['en'] = "gtts-cli -f /tmp/ttsdata -o /tmp/ttsres && mplayer /tmp/ttsres"
+     sh['ru'] = "gtts-cli -l ru -f /tmp/ttsdata -o /tmp/ttsres && mplayer /tmp/ttsres"
+     
 def callBack(*args):
     global back
     global last

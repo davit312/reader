@@ -7,6 +7,16 @@ Script for ```Ubuntu Linux```
 
 ### Require
 * Espeak
-* pico2wave
 * RHvoice
 * aplay
+
+### Optional
+* xdotool
+
+### For google TTS integration
+Install `gtts` python package globally on system
+
+```pip install gtts```
+Also required `mplayer` for playing result audio
+
+Use **speach.py** with flag `-g` or `--gtts` to enable online google engines for english and russian

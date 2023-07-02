@@ -2,6 +2,14 @@
 # -*- coding: utf-8 -*-
 
 import os,re
+import argparse
+
+def parse_args():
+    parser = argparse.ArgumentParser(
+        description='sum the integers at the command line')
+    parser.add_argument(
+        '-g', '--gtts',  help='If present, use googel tts online engine' ,action='store_true')
+    return parser.parse_args()
 
 def getLang(cptx):
     am = 0
@@ -35,10 +43,8 @@ def getLang(cptx):
 def killspeach():
     os.system("touch /tmp/stoptts")
     os.system("pkill espeak ")
-    os.system("pkill festival -f ")
     os.system("pkill aplay -f")
-    os.system("pkill Alyona.py -f")
-    os.system("pkill mpg123 -f")
+    os.system("pkill mplayer -f")
 
 def russianfix(text):
     text = re.sub(r'\«', "\n ", text,flags=re.MULTILINE)
